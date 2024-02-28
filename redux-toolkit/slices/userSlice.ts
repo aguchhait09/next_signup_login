@@ -2,8 +2,11 @@ import { userData } from "@/types/common.type";
 import { createSlice } from "@reduxjs/toolkit";
 import { destroyCookie } from "nookies";
 import { userSliceData } from "../interfaces/interfaces";
+import { setUserAccessToken } from "@/api/axiosInstance";
+import { deleteCookie } from "cookies-next";
 
 const initialState: userSliceData = {
+  accessToken: null,
   isLoggedIn: false,
   userData: null
 };
@@ -14,29 +17,25 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setLoginData: (state, { payload }: { payload: userData }) => {
-      // state.email
       state.userData = payload;
       state.isLoggedIn = true;
     },
-    checkLoggedInServer: (state, { payload }) => {
-      state.isLoggedIn = payload?.hasToken;
-      state.userData = payload?.user;
+    setAccessToken: (state, { payload }: { payload: string | null }) => {
+      state.accessToken = payload;
+      state.isLoggedIn = Boolean(payload);
+      setUserAccessToken(payload);
     },
     logout: (state) => {
       state.isLoggedIn = false;
       state.userData = null;
-      // cookie.remove("privy_token");
-      // cookie.remove("user");
-
-      destroyCookie(null, "user", { path: "/" });
-      destroyCookie(null, process.env.NEXT_APP_TOKEN_NAME!, { path: "/" });
-
+      state.accessToken = null;
+      deleteCookie('token');
       window.location.href = "/login";
     }
   },
   extraReducers: {}
 });
 
-export const { setLoginData, checkLoggedInServer, logout } = userSlice.actions;
+export const { setLoginData, logout, setAccessToken } = userSlice.actions;
 
 export default userSlice.reducer;

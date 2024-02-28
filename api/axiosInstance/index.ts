@@ -9,6 +9,22 @@ import { parseCookies } from "nookies";
 import { baseUrl, sucessNotificationEndPoints } from "../endpoints";
 // import { refreshAccessToken } from "../functions/user.api";
 
+let accessToken: string | null = null;
+
+export const setUserAccessToken = (userToken: typeof accessToken) => {
+  accessToken = userToken;
+};
+
+export const getUserAccessToken = () => {
+  return accessToken;
+};
+
+let refreshToken: string | null = null;
+
+export const setUserRefreshToken = () => {
+  return refreshToken;
+};
+
 const axiosInstance = axios.create({
   baseURL: baseUrl
 });
