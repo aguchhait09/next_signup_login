@@ -20,14 +20,14 @@ const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
 export const ResetSchema = yup
   .object()
   .shape({
-    fullName: yup.string().required(),
     email: yup
       .string()
       .trim()
       .email(validationText.error.email_format)
       .required(validationText.error.enter_email)
       .matches(emailRegex, validationText.error.email_format),
-    password: yup.string().trim().required(validationText.error.enter_password)
+    password: yup.string().trim().required(validationText.error.enter_password),
+    confirm_password: yup.string().trim().required(validationText.error.enter_password)
   })
   .required();
 
@@ -41,7 +41,7 @@ const ResetPassword = () => {
     defaultValues: {
       email: "",
       password: "",
-      confirm_password: ""
+      confirm_password: ""  
     }
   });
 
@@ -108,7 +108,7 @@ const ResetPassword = () => {
                 margin: "auto"
               }}
             >
-              <Typography>Set Password</Typography>
+              <Typography>Reset Password</Typography>
             </CustomButtonPrimary>
           </form>
         </Box>

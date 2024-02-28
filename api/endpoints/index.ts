@@ -10,7 +10,8 @@ export const endpoints = {
   auth: {
     signup: `/user/signup`,
     login:"user/login",
-    reserPassword: "/user/reset-password"
+    resetPassword: "/user/reset-password",
+    forgetPassword: "/user/forgot-password"
   },
   cms: {
     about: "aboutpolicy/details",
