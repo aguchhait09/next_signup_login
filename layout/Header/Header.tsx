@@ -49,7 +49,7 @@ export default function Header() {
     {
       name: "Contact us",
       route: "javascript:void(0)"
-    }
+    },
   ];
 
   // const { window } = props;
@@ -64,7 +64,7 @@ export default function Header() {
 
   const handleLogout = () => {
     dispatch(logout());
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   const drawer = (
@@ -177,7 +177,7 @@ export default function Header() {
                 variant="contained"
                 color="primary"
               >
-                <Typography>Login</Typography>
+                <Typography onClick={()=>router.push('/auth/login')} >Login</Typography>
               </CustomButtonPrimary>
             </Box>
           </Toolbar>

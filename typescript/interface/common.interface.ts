@@ -391,12 +391,6 @@ export interface IFormInput {
   email: string;
   password: string;
   fullName: string;
-  username: string;
-  phone: Number;
-  bio: string;
-  first_name: string;
-  last_name: string;
-  country_code: string
 }
 
 export interface ButtonType {

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
 
-const Login = () => {
+const ResetPassword = () => {
   return (
     <Wrapper>
       <Container maxWidth="sm" sx={{ my: 4 }}>
@@ -32,6 +32,14 @@ const Login = () => {
               my: 1
             }}
           />
+          <InputFieldCommon
+            required
+            type="password"
+            label="Confirm Password"
+            sx={{
+              my: 1
+            }}
+          />
           <CustomButtonPrimary
             type="button"
             variant="contained"
@@ -40,27 +48,12 @@ const Login = () => {
               margin: "auto"
             }}
           >
-            <Typography>Login</Typography>
+            <Typography>Set Password</Typography>
           </CustomButtonPrimary>
-          <Typography sx={{ textAlign: "center", my: 1 }}>
-            <Link href={"/auth/register"}>
-              Don't have any account? Click here to Signup
-            </Link>
-          </Typography>
-          <Typography sx={{ textAlign: "center", my: 1 }}>
-            <Link href={"/auth/forgetPassword"}>
-              Forget Password? Click Here
-            </Link>
-          </Typography>
-          <Typography sx={{ textAlign: "center", my: 1 }}>
-            <Link href={"/auth/resetPassword"}>
-              Reset Password? Click Here
-            </Link>
-          </Typography>
         </Box>
       </Container>
     </Wrapper>
   );
 };
 
-export default Login;
+export default ResetPassword;

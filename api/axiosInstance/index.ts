@@ -6,11 +6,11 @@ import {
 } from "@/lib/functions/_helpers.lib";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { parseCookies } from "nookies";
-import { baseUrlApi, sucessNotificationEndPoints } from "../endpoints";
+import { baseUrl, sucessNotificationEndPoints } from "../endpoints";
 // import { refreshAccessToken } from "../functions/user.api";
 
 const axiosInstance = axios.create({
-  baseURL: baseUrlApi
+  baseURL: baseUrl
 });
 
 axiosInstance.interceptors.request.use((config) => {

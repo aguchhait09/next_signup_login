@@ -18,16 +18,5 @@ export const loginMutation = async (body: IFormInput) => {
   );
   return res;
 };
-export const GetProfileDetails = async () => {
-  const res = await axiosInstance.get<IgetSignUpQuery>(
-    endpoints.auth.profileDetails
-  );
-  return res;
-};
-export const signUpProfileMutation = async (body: IFormInput) => {
-  const res = await axiosInstance.post<IgetSignUpQuery>(
-    endpoints.auth.signUpProfile,
-    body
-  );
-  return res;
-};
+
+
