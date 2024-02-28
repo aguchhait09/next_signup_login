@@ -12,6 +12,7 @@ import { emailRegex } from "@/lib/regex";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "sonner";
+import { useRouter } from "next/router";
 
 const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
 
@@ -36,6 +37,7 @@ export const SignupSchema = yup
 
 const register = () => {
 
+  const router = useRouter()
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(SignupSchema),
     mode: "all",
@@ -58,8 +60,8 @@ const register = () => {
         {
             onSuccess: (response)=>{
                 if(response?.data?.status === 200){
-                    toast.success('SignUp Successfully!')
-                    
+                    toast.success(response?.data?.message)
+                    router.push('/auth/login')
                 }
             }
                 

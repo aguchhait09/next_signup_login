@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import { NextRequest, NextResponse } from "next/server";
 // If the incoming request has the "token" cookie
 export function middleware(request: NextRequest) {
@@ -7,12 +8,12 @@ export function middleware(request: NextRequest) {
 
   if (has_token === undefined || has_token === null) {
     request.nextUrl.pathname = "/login";
-    return NextResponse.redirect(request.nextUrl);
+    return NextResponse.redirect(new URL("/auth/login", request.nextUrl));
   } else {
     return NextResponse.next();
   }
 }
 
 export const config = {
-  matcher: ["/dashboard/dashboardfirst/"]
+  matcher: ["/"]
 };

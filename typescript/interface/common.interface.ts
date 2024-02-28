@@ -388,9 +388,10 @@ export interface CommonMuiInputProps {
 }
 
 export interface IFormInput {
-  email: string;
-  password: string;
-  fullName: string;
+  email?: string;
+  password?: string;
+  confirm_password?: string;
+  fullName?: string;
 }
 
 export interface ButtonType {

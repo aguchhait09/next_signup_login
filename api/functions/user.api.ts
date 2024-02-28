@@ -11,6 +11,15 @@ export const signUpMutation = async (body: IFormInput) => {
   );
   return res;
 };
+
+export const passwordReset = async (body: IFormInput) => {
+  const res = await axiosInstance.post<IgetSignUpQuery>(
+    endpoints.auth.reserPassword,
+    body
+  );
+  return res;
+};
+
 export const loginMutation = async (body: IFormInput) => {
   const res = await axiosInstance.post<IgetSignUpQuery>(
     endpoints.auth.login,
