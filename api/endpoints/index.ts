@@ -11,7 +11,8 @@ export const endpoints = {
     signup: `/user/signup`,
     login: "/user/signin",
     resetPassword: "/user/reset-password",
-    forgetPassword: "/user/forgot-password"
+    forgetPassword: "/user/forgot-password",
+    otpverify: "/user/verify-otp"
   },
   cms: {
     about: "aboutpolicy/details",

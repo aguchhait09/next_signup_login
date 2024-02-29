@@ -59,14 +59,13 @@ const Login = () => {
         onSuccess: (res) => {
           if (res.data.status === 200) {
             if (res?.data) {
-              const { access, ...userData } = res.data;
+              const { ...userData } = res.data;
               toast.success(res?.data?.message);
               setCookie("token", userData.token);
               setCookie("userdata", JSON.stringify(userData));
-              console.log("Token:-", userData.token);
               dispatch(setAccessToken(userData.token));
               dispatch(setLoginData(userData));
-              router.push("/auth/profile");
+              
             }
           }
         }
@@ -130,9 +129,6 @@ const Login = () => {
             <Link href={"/auth/forgetPassword"}>
               Forget Password? Click Here
             </Link>
-          </Typography>
-          <Typography sx={{ textAlign: "center", my: 1 }}>
-            <Link href={"/auth/resetPassword"}>Reset Password? Click Here</Link>
           </Typography>
         </Box>
       </Container>

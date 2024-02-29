@@ -127,6 +127,7 @@ export default function Header() {
               <Image src={assest.logo_img} width={250} height={38} alt="Logo" />
             </Link>
             {isLoggedIn ? (
+              <>
               <Box
                 sx={{ display: { xs: "none", sm: "block" } }}
                 className="navbar"
@@ -137,18 +138,12 @@ export default function Header() {
                   variant="contained"
                   color="primary"
                 >
-                  <span>Logout</span>
-                </CustomButtonPrimary>
-
-                <CustomButtonPrimary
-                  type="button"
-                  variant="contained"
-                  color="primary"
-                >
-                  <span>{userData?.email}</span>
+                  <Typography>Logout</Typography>
                 </CustomButtonPrimary>
               </Box>
+              </>
             ) : (
+              <>
               <Box
                 sx={{ display: { xs: "none", sm: "block" } }}
                 className="navbar"
@@ -165,7 +160,6 @@ export default function Header() {
                   </Link>
                 ))}
               </Box>
-            )}
             <Box className="hdr_rgt">
               <Box className="cart_icon">
                 <Badge color="primary" variant="dot">
@@ -180,6 +174,8 @@ export default function Header() {
                 <Typography onClick={()=>router.push('/auth/login')} >Login</Typography>
               </CustomButtonPrimary>
             </Box>
+            </>
+            )}
           </Toolbar>
         </Container>
       </AppBar>

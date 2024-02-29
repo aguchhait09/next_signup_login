@@ -4,6 +4,7 @@ import { destroyCookie } from "nookies";
 import { userSliceData } from "../interfaces/interfaces";
 import { setUserAccessToken } from "@/api/axiosInstance";
 import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
 const initialState: userSliceData = {
   accessToken: null,
@@ -30,7 +31,7 @@ export const userSlice = createSlice({
       state.userData = null;
       state.accessToken = null;
       deleteCookie('token');
-      window.location.href = "/login";
+      window.location.href = "/auth/login";
     }
   },
   extraReducers: {}

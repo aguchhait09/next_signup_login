@@ -20,6 +20,14 @@ export const passwordReset = async (body: IFormInput) => {
   return res;
 };
 
+export const otpVerifyFunc = async (body: any) =>{
+  const res = await axiosInstance.post(
+    endpoints.auth.otpverify,
+    body
+  )
+  return res
+}
+
 export const forgetPassword = async (body: IFormInput) => {
   const res = await axiosInstance.post<IgetSignUpQuery>(
     endpoints.auth.forgetPassword,

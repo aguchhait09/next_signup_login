@@ -2,7 +2,7 @@ import { url } from "inspector";
 import { NextRequest, NextResponse } from "next/server";
 // If the incoming request has the "token" cookie
 export function middleware(request: NextRequest) {
-  const has_token = request.cookies.get("career_token")?.name;
+  const has_token = request.cookies.get("token")
 
   const { pathname } = request.nextUrl;
 
